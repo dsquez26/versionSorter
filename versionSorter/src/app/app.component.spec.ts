@@ -26,10 +26,16 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('versionSorter');
   });
 
-  it('should render title', () => {
+describe('isNumber()', () => {
+  it('it should return true for a vaild number', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('versionSorter app is running!');
-  });
+    const app = fixture.debugElement.componentInstance;
+    expect(app.isNumber('4')).toBeTruthy();
+  })
+  
+})
+
+
+
+
 });
