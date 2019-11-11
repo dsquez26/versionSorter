@@ -32,10 +32,30 @@ describe('isNumber()', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.isNumber('4')).toBeTruthy();
   })
-  
+  it('it should return true for a vaild number'), () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.isNumber('a')).toBeFalsy();
+  }
 })
 
-
+describe('parseVersion', () => {
+  it('should return null if too many parts', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.parseVersion('4.4.4.4')).toBeNull();
+  })
+  it('should return null of NaN', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.parseVersion('a.4.4')).toBeNull();
+  })
+  it('should return null if empty', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.parseVersion('')).toBeNull();
+  })
+})
 
 
 });
